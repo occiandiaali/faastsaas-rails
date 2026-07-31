@@ -1,0 +1,8 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+occian:
+  email: occiandiaali@outlook.com
+  password_digest: <%= BCrypt::Password.create("password") %>
+  sub_plan: starter
+  credits: 50
+
