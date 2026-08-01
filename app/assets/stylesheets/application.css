@@ -20,13 +20,28 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8f8f8;
 }
 
 main {
-  padding: 0.5rem 1rem;
+  /* padding: 0.5rem 1rem; */
+  padding: 0 1rem;
+  
 }
 
-.navbar {
+/* .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+} */
+ .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,6 +63,11 @@ main {
 
 .navbar-links li {
     margin: 0 15px;
+    
+}
+.navbar-links .a {
+    padding-top: 10px;
+
 }
 
 .navbar-links a {
@@ -66,6 +86,98 @@ main {
     width: 25px;
     background-color: white;
     margin: 3px 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    padding: 10px;
+    /* background-color: #333;
+    color: white; */
+    color: #4CAF50;
+}
+
+/* Sign in page */
+.form-container {
+    max-width: 320px;
+    width: 100%;
+    padding: 40px;
+    margin: 3% auto;
+    box-shadow: 0 0 6px black;
+    background: transparent;
+    border-radius: 30px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+}
+.input-container {
+    margin-bottom: 18px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #1a1b1b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Landing page */
+.hero {
+    text-align: center;
+    padding: 50px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+}
+
+.subhead {
+    font-size: 1.2em;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #4CAF50;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.home-section {
+    margin: 20px 0;
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
 }
 
 /* Media Query for Responsive Design */

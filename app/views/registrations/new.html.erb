@@ -1,0 +1,19 @@
+<div class="form-container">
+<h1>Sign up</h1>
+
+<%= form_with model: @user, url: registration_path do |f| %>
+  <%= tag.div(@user.errors.full_messages.to_sentence) if @user.errors.any? %>
+
+  <div class="input-container">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="input-container">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <%= f.submit "Sign up" %>
+<% end %>
+</div>

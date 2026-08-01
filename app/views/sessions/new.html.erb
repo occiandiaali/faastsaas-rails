@@ -1,0 +1,18 @@
+<div class="form-container">
+<h1>Sign in</h1>
+
+<%= form_with scope: :session, url: session_path do |f| %>
+  <div class="input-container">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="input-container">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <%= f.submit "Sign in" %>
+<% end %>
+
+</div>
