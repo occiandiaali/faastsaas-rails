@@ -38,6 +38,7 @@
         <ul>
             <li class="a"><%= link_to "Home", root_path %></li>
             <li class="a"><%= link_to "Dashboard", dashboard_path %></li>
+            <li class="a"><%= link_to "Strategist", strategist_path %></li>
             <li class="a"><%= link_to "Sign in", new_session_path %></li>
             <li class="a"><%= link_to "Sign up", new_registration_path %></li>
             <li><%= button_to "Sign out", session_path, method: :delete %></li>
@@ -46,8 +47,13 @@
 </nav>
 
   </header>
-  <div style="width:280px;height:38px;margin:0 auto;padding-top:5%;">
-  <%= notice %>
+  <div style="width:280px;height:38px;margin:0 auto;padding-top:3%;">
+    <% if notice.present? %>
+      <p class="flash notice"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
+      <p class="flash alert"><%= alert %></p>
+    <% end %>
   </div>
   <main>
     <%= yield %>

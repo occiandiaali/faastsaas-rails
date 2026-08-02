@@ -1,0 +1,69 @@
+<div class="strategist-panel">
+  <h1>AI Strategist Page</h1>
+  <p>
+    <span>Hello, <strong><%= Current.user.email %></strong>!</span>
+  </p>
+
+  <% if @status_message.present? %>
+    <div class="flash <%= @status_type %>"><%= @status_message %></div>
+  <% end %>
+
+  <%= form_with url: strategist_path, method: :post, local: true, class: "strategist-form" do |form| %>
+    <div class="input-container">
+      <%= form.label :url, "Website URL" %>
+      <%= form.text_field :url, placeholder: "https://example.com", required: true %>
+    </div>
+
+    <div class="input-container">
+      <%= form.label :tier, "Subscription tier" %>
+      <%= form.select :tier, options_for_select([['Basic', 'basic'], ['Pro', 'pro']], @tier), {}, { class: "tier-select" } %>
+    </div>
+
+    <div class="input-container">
+      <%= form.label :target_market, "Target market" %>
+      <%= form.text_field :target_market, placeholder: "Indie developers building AI tools" %>
+    </div>
+
+    <div class="input-container">
+      <%= form.label :demographic, "Demographic focus" %>
+      <%= form.text_field :demographic, placeholder: "Developers 25-40" %>
+    </div>
+
+    <div class="input-container">
+      <%= form.label :geography, "Geographic focus" %>
+      <%= form.text_field :geography, placeholder: "US and Europe" %>
+    </div>
+
+    <%= form.submit "Run scan" %>
+  <% end %>
+
+  <% if @generated_token.present? %>
+    <div class="scrape-result">
+      <h2>Token needed for the target site</h2>
+      <p>Use this token in the target website head tag:</p>
+      <pre>&lt;meta name="strategist-token" content="<%= @generated_token %>"&gt;</pre>
+      <p>Once the token is present, run the scan again to start the AI analysis.</p>
+    </div>
+  <% end %>
+
+  <% if @last_scrape_result.present? %>
+    <div class="scrape-result">
+      <h2>Last scrape</h2>
+      <p><strong>URL:</strong> <%= @last_scrape_url %></p>
+      <p><strong>Title:</strong> <%= @last_scrape_result[:title] %></p>
+      <p><strong>Summary:</strong> <%= @last_scrape_result[:summary] %></p>
+    </div>
+  <% end %>
+
+  <% if @last_analysis_report.present? %>
+    <div class="scrape-result">
+      <h2>Go-to-market guide</h2>
+      <p><strong>Tier:</strong> <%= @tier.to_s.titleize %></p>
+      <pre class="report-output"><%= @last_analysis_report %></pre>
+      <div class="export-actions">
+        <%= link_to "Download TXT", strategist_path(download: :txt), class: "btn" %>
+        <%= link_to "Download PDF", strategist_path(download: :pdf), class: "btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>

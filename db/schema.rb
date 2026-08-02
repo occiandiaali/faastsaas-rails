@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_01_102550) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_02_120000) do
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -23,6 +23,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_01_102550) do
     t.integer "credits", default: 0
     t.string "email", null: false
     t.string "password_digest", null: false
+    t.string "strategist_token"
     t.string "sub_plan"
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

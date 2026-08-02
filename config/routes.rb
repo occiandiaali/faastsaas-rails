@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
    resource :dashboard, only: :show
 
+   resource :strategist, only: %i[show create]
+
    resource :registration, only: %i[new create]
 
    resource :session, only: %i[new create]
